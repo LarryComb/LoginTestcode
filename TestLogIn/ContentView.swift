@@ -15,7 +15,7 @@ struct ContentView: View {
     @State private var showingLoginSreen = false
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             ZStack {
                 Color.blue
                     .ignoresSafeArea()
@@ -56,8 +56,7 @@ struct ContentView: View {
                     
                     NavigationLink(destination: Text("You are logged in @\(username)"), isActive: $showingLoginSreen){
                                            EmptyView()
-                      
-                             
+                    
                     Button("Login"){
                         authenticateUser(username: username, password: password)
                     }
@@ -66,16 +65,11 @@ struct ContentView: View {
                     .background(Color.blue)
                     .cornerRadius(10)
                     
-                    
-
-                            
-
-                        
                             
                         }
                 }
             }
-            .navigationBarHidden(true)
+            .navigationBarHidden(false)
         }
     }
 
